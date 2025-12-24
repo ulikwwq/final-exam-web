@@ -12,24 +12,40 @@ function StudentDetail() {
     return <p>Student not found</p>;
   }
 
-  return (
-    <div className="container mt-4">
-      <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>
-        Back to list
-      </button>
+  const [firstName, lastName] = student.fullName.split(" ");
 
-      <div className="card">
+  return (
+    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+      <div
+        className="card text-center p-4 shadow"
+        style={{ width: "350px", borderRadius: "15px", backgroundColor: "#fdfdfe" }}
+      >
         <img
           src={student.image}
-          className="card-img-top img-fluid"
+          className="rounded-circle mx-auto mb-3 shadow"
           alt={student.fullName}
+          style={{ width: "150px", height: "150px", objectFit: "cover" }}
         />
+
         <div className="card-body">
-          <h3 className="card-title">{student.fullName}</h3>
-          <p className="card-text">ID: {student.id}</p>
-          <p className="card-text">Group: {student.group}</p>
-          <p className="card-text">Year: {student.year}</p>
-          <p className="card-text">GPA: {student.gpa}</p>
+          <h4 className="fw-bold mb-3">
+            <div>{firstName}</div>
+            <div>{lastName}</div>
+          </h4>
+
+          <p className="card-text rounded p-2 mb-2 shadow-sm" style={{ backgroundColor: "#f8f9fa" }}>
+            Group: {student.group}
+          </p>
+          <p className="card-text rounded p-2 mb-2 shadow-sm" style={{ backgroundColor: "#d1e7dd", color: "#0f5132" }}>
+            Year: {student.year}
+          </p>
+          <p className="card-text rounded p-2 mb-2 shadow-sm" style={{ backgroundColor: "#f8d7da", color: "#842029" }}>
+            GPA: {student.gpa}
+          </p>
+
+          <button className="btn btn-secondary mt-3" onClick={() => navigate(-1)}>
+            Back to list
+          </button>
         </div>
       </div>
     </div>
@@ -37,3 +53,4 @@ function StudentDetail() {
 }
 
 export default StudentDetail;
+

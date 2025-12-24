@@ -17,20 +17,27 @@ function App() {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-5 mb-5">
       <Routes>
         <Route
           path="/"
           element={
             <>
-              <h1 className="mb-4">Student Catalog</h1>
+              <div className="text-center mb-4">
+                <h1 className="mb-2">Student Catalog</h1>
+                <h5 className="text-muted">
+                  Here are 10 students. Click the button or a student for more info.
+                </h5>
+              </div>
+
               <StudentList
                 students={students.slice(0, visibleCount)}
                 onStudentClick={handleStudentClick}
               />
+
               {visibleCount < students.length && (
-                <div className="text-center mt-3">
-                  <button className="btn btn-primary" onClick={handleSeeMore}>
+                <div className="text-center mt-4">
+                  <button className="btn btn-primary btn-lg" onClick={handleSeeMore}>
                     See more
                   </button>
                 </div>
